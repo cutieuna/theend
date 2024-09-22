@@ -1,5 +1,7 @@
-const mongoose=require ('mongoose');
-const mongoURI='mongodb://localhost:27017/notez?readPreference=primary&appname=MongoDB%20Compass&ssl=false'
+const secureurl = require('./ddd')
+
+const mongoURI=secureurl;
+
 const connectToMongo=()=>{
     mongoose.connect(mongoURI, ()=>{
         console.log("connected to mongo successfully");
