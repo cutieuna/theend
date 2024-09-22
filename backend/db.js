@@ -1,5 +1,7 @@
 const secureurl = require('./ddd')
 
+const mongoose=require('mongoose');
+
 const mongoURI=secureurl;
 
 const connectToMongo=()=>{
