@@ -22,6 +22,14 @@ const NotesSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    priority: {
+        type: String,
+        enum: ['low', 'medium', 'high'],
+        default: 'medium'
+    },
+    updateDate: {
+        type: Date
+    },
   });
 
   module.exports = mongoose.model('notes', NotesSchema);
