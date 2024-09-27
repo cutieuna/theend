@@ -14,20 +14,11 @@ const userSchema = new Schema({
    password:{
     type:String,
     required:true
-   },
-    profileImage: {
-        type: String,
-        default: "default.jpg"
-    },
+},
    date:{
        type:Date,
        default:Date.now
-   },
-    role: {
-        type: String,
-        enum: ['user', 'admin'],
-        default: 'user'
-    },
+   }
   });
   const User=mongoose.model('user', userSchema);
   User.createIndexes();
