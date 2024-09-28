@@ -114,7 +114,7 @@ router.put('/updatepriority/:id', fetchuser, async (req, res) => {
 })
 //6
 router.put('/updateprofileimage', fetchuser, async (req, res) => {
-    const { profileImage } = req.body; // 클라이언트에서 이미지 URL 전달
+    const { profileImage } = req.body; 
     try {
         const user = await User.findById(req.user.id);
         if (!user) {
