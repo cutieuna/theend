@@ -92,4 +92,40 @@ router.delete('/deletenote/:id', fetchuser, async (req, res) => {
 }
 
 })
+//5
+router.put('/updatepriority/:id', fetchuser, async (req, res) => {
+    const { priority } = req.body;
+    try {
+        let note = await Note.findById(req.params.id);
+        if (!note) {
+            return res.status(404).send("Note not found");
+        }
+        if (note.user.toString() !== req.user.id) {
+            return res.status(401).send("Not allowed");
+        }
+        note.priority = priority;
+        note.updatedDate = Date.now();
+        await note.save();
+        res.json(note);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
+//6
+router.put('/updateprofileimage', fetchuser, async (req, res) => {
+    const { profileImage } = req.body; // 클라이언트에서 이미지 URL 전달
+    try {
+        const user = await User.findById(req.user.id);
+        if (!user) {
+            return res.status(404).send("User not found");
+        }
+        user.profileImage = profileImage;
+        await user.save();
+        res.json(user);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).send("Internal Server Error");
+    }
+})
 module.exports=router
