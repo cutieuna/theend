@@ -114,7 +114,7 @@ router.put('/updatepriority/:id', fetchuser, async (req, res) => {
 })
 //6
 router.put('/updateprofileimage', fetchuser, async (req, res) => {
-    const { profileImage } = req.body; 
+    const { profileImage } = req.body;
     try {
         const user = await User.findById(req.user.id);
         if (!user) {

@@ -28,6 +28,15 @@ const userSchema = new Schema({
         enum: ['user', 'admin'],
         default: 'user'
     },
+    isVerified: {
+       type: Boolean,
+       default: false
+    },
+    roles: [{
+       type: mongoose.Schema.Types.ObjectId,
+       ref: 'Role'
+    }]
+
   });
   const User=mongoose.model('user', userSchema);
   User.createIndexes();
