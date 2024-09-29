@@ -15,6 +15,6 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/notes', require('./routes/notes'));
 app.use('/api/users', require('./routes/user'));
 
-app.listen(port, () => {
+app.listen(3000, () => {
     console.log(`서버가 포트 ${port}에서 실행 중입니다.`);
 });
